@@ -18,11 +18,11 @@ if __name__ == '__main__':
     X = np.zeros((1, 64, 64, 3), dtype='float64')
     X[0] = img
     # Getting model:
-    model_file = open('Data/Model/model.json', 'r')
+    model_file = open('model.json', 'r')
     model = model_file.read()
     model_file.close()
     model = model_from_json(model)
     # Getting weights
-    model.load_weights("Data/Checkpoints/best_weights.h5")
+    model.load_weights("weights.h5")
     Y = predict(model, X)
     print('It is a ' + Y + ' !')
