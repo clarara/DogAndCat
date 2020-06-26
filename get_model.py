@@ -5,13 +5,11 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 
 def save_model(model):
-    if not os.path.exists('Data/Model/'):
-        os.makedirs('Data/Model/')
     model_json = model.to_json()
-    with open("Data/Model/model.json", "w") as model_file:
+    with open("model.json", "w") as model_file:
         model_file.write(model_json)
     # serialize weights to HDF5
-    model.save_weights("Data/Model/weights.h5")
+    model.save_weights("weights.h5")
     print('Model and weights saved')
     return
 
